@@ -17,11 +17,11 @@ int number(int row, int column);
 
 int main() {
 
-	int s = pascal_triangle(14);
-	std::cout << s << "\n";
-
-	int s1 = pascal_triangle_recursive(14);
-	std::cout << s1 << "\n";
+//	int s = pascal_triangle(14);
+//	std::cout << s << "\n";
+//
+//	int s1 = pascal_triangle_recursive(14);
+//	std::cout << s1 << "\n";
 
 
 	return 0;
@@ -58,7 +58,6 @@ int pascal_triangle(int n) {
 		}
 		std::cout << "\n";
 	}
-	std::cout << std::endl;
 
 	return sum;
 }
@@ -74,7 +73,6 @@ int pascal_triangle_recursive(int n) {
 		}
 		std::cout << "\n";
 	}
-	std::cout << std::endl;
 
 	return sum;
 }
