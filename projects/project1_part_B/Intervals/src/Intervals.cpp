@@ -350,16 +350,19 @@ public:
 		if (this->no_value) {
 
 		} else {
-			int i = (int) this->a;
-			int j = (int) this->b;
 
-			while (i < j - 1) {
-				i++;
-				std::cout << i << ", ";
+			for (int i = this->a - 1; i <= this->b; i++) {
+				if (i <= this->b && i >= this->a) {
+					if (Fuking_ABS(i - b) < 1) {
+						std::cout << i << "\n";
+
+					} else {
+						std::cout << i << ", ";
+
+					}
+				}
 			}
 
-			i++;
-			std::cout << i << "\n";
 		}
 
 		this->print_value(false);
@@ -372,33 +375,50 @@ public:
 		std::cin >> c;
 		std::cin >> d;
 
-		if (this->no_value) {
-			this->print_value(false);
-			return;
+		if (c > d) {
+			std::cout << "Error: invalid interval as " << c << " > " << d
+					<< "\n";
 		} else {
-			int aI = (int) a;
-			int bI = (int) b;
-			int cI = (int) c;
-			int dI = (int) d;
+			if (this->no_value) {
 
-			for (int i = aI; i < bI; i++) {
-				for (int j = cI; j < dI; j++) {
+			} else {
 
-					if (i == bI - 1 && j == dI - 1) {
-						std::cout << "(" << bI << "," << dI << ")\n";
+				for (int i = a - 1; i < b + 1; i++) {
+					for (int j = c - 1; j < d + 1; j++) {
 
-					} else {
-						std::cout << "(" << i + 1 << "," << j + 1 << "), ";
+						if (i >= a && i <= b && j >= c && j <= d) {
+
+							if (Fuking_ABS(i - b) < 1
+									&& Fuking_ABS(j - d) < 1) {
+								std::cout << "(" << i << "," << j << ")\n";
+
+							} else {
+								std::cout << "(" << i << "," << j << "), ";
+
+							}
+						}
 
 					}
-
 				}
+
 			}
 
 		}
 
 		print_value(false);
 
+	}
+
+
+
+
+
+	double Fuking_ABS(double x) {
+		if (x >= 0) {
+			return x;
+		} else {
+			return -x;
+		}
 	}
 
 };
@@ -410,7 +430,7 @@ int main() {
 
 	for (;;) {
 
-		std::cout << "input :>";
+		std::cout << "input :> ";
 		std::cin >> input;
 
 		if (input == "exit") {
